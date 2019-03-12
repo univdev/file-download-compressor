@@ -39,11 +39,13 @@ namespace WpfApp1
             while ((resource = reader.ReadLine()) != null)
             {
                 string directory = root + "/" + DirectoryName;
-                /// 파일질라 테스트/20190309
                 string fileName = Path.GetFileName(resource).Substring(3);
                 string downloadDirectory = destination + "/" + DirectoryName;
+                string extension = Path.GetExtension(resource);
                 if (!Directory.Exists(downloadDirectory)) Directory.CreateDirectory(downloadDirectory);
-                if (fileName.IndexOf('.') < 0)
+                Console.WriteLine("extension: " + extension);
+                Console.WriteLine("filename: " + fileName);
+                if (extension == String.Empty)
                     this.DirectoryDownload(directory, fileName, downloadDirectory);
                 else
                     this.FileDownload(directory, fileName, downloadDirectory);

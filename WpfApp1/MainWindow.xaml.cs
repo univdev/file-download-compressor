@@ -34,6 +34,7 @@ namespace WpfApp1
             string date = DateInput.Text.Replace("-", "");
             string download = DownloadInput.Text;
 
+
             FTP ftp = new FTP(host, location, username, password);
             ftp.exec("/", date, download);
         }
